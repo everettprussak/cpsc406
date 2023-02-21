@@ -72,7 +72,7 @@ This report...
 
 This section contains solutions to homework. 
 
-\subsection{Week 2/3 (Homework 1)}
+\subsection{Week 2 (Homework 1)}
 This week's homework was to solve the following NFA:\noindent\newline
 \includegraphics[scale=0.8]{a}\noindent\newline
 \noindent\newline This is the following NFA but drawn out:
@@ -87,7 +87,89 @@ From this NFA, the following DFA table can be made:\noindent\newline
 \noindent\newline\newline This DFA diagram will allow for the correct initial state, final states, and correct path for each input.
 
 
-\subsection{Week 3}
+\subsection{Week 3 (Homework 2)}
+\noindent Week 3 consisted of 2 Questions. They are in their respective sections.\newline
+
+\subsubsection{Question 1}
+For Week 3 Question the object was to write the steps of the unification algorithm for each pair. \newline
+
+\includegraphics[scale=0.75]{c}\noindent\newline
+
+\noindent\newline For number 1 of question 1 I got the following answer:
+
+\begin{verbatim}
+1. f(X,f(X,Y)) = f(f(Y,a),f(U,b))
+
+  1. X = f(Y,a)
+      o1 = [f(Y,a)/X]
+
+  2. f(X,Y) = f(U,b)
+      3. X = U
+          o3 = [U/X]
+      4. Y = b
+          o4 = [b/Y]
+
+  5. X(o3 * o4) = U, f(o3 * o4)(Y,a) = f(b,a)
+      U = f(b, a)
+      o5 = [f(b,a)/U]
+
+
+o = o3 * o4 * o5 = [U/X, b/Y, f(b,a)/U]
+X = U, Y = b, U = f(b,a)
+\end{verbatim}
+
+\noindent\textbf{Note: Sigma Symbol was not working in Verbatim, thus a simple lowercase o was subsitituted.}
+
+\noindent\newline\newline For number 2 of question 1 I got the following answer:
+
+\begin{verbatim}
+2. f(g(U),f(X,Y)) = f(X,f(Y,U))
+
+  1. g(U) = X
+       o1 = [g(U)/X]
+
+  2. f(X,Y) = f(Y,U)
+       3. X = Y
+          o3 = [Y/X]
+       4. Y = U
+          o4 = [U/Y]
+
+o = o1 * o2 * o3 = [X/U, Y/X, g(Y)/Y]
+\end{verbatim}
+
+\noindent\newline\newline For number 3 of question 1 I got the following answer:
+\begin{verbatim}
+3. h(U,f(g(V),W),g(W)) = h(f(X,b),U,Z)
+
+  1. U = f(X,b)
+     o1 = [f(X,b)/U]
+
+  2. f(g(V),W) = U
+     o2 = [f(g(V),W)/U]
+
+  3. g(W) = Z
+     o3 = [g(W)/Z]
+
+  4. U(o1 * o2) --> f(X,b) = f(g(V),W)
+
+     5. X = g(V)
+        o5 = [g(V)/X]
+
+     6. b = W
+        o6 = [b/W]
+
+  7. Z(o3 * o6) = g(W), W = b
+     o7 = [g(b)/Z]
+
+  8. U(o1 * o2 * o6) --> f(X,b) = f(g(V), b)
+     o8 [f(g(V),b)/U]
+
+
+  o = o5 * o6 * o7 * o8 = [f(g(V),b)/U, g(V)/X, b/W, g(b)/Z]
+
+
+  U = f(g(V),b), W = b, X = g(V), Z = g(b)
+\end{verbatim}
 
 \ldots
 
