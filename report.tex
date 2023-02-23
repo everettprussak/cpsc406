@@ -171,6 +171,28 @@ o = o1 * o2 * o3 = [X/U, Y/X, g(Y)/Y]
   U = f(g(V),b), W = b, X = g(V), Z = g(b)
 \end{verbatim}
 
+\subsubsection{Question 2}
+For question 2, the task was to draw a SLD Recursion Tree for the following:\newline
+\includegraphics[scale=0.65]{f}\newline\newline\newline
+
+\noindent I got the following SLD Tree:
+\begin{verbatim}
+
+
+
+                   twoway(W,a)
+                  /           \
+                 /             \
+              conn(W,a)        conn(a,W)
+              /        \        /       \
+            W=b        W=d   W=c       no
+                        |            /  |  \
+                        no          b   d   c
+\end{verbatim}
+
+\noindent\newline twoway(W,a) becomes conn(W,a) and conn(a,W) because of the rule twoway(X,Y):- conn(X,Y), conn(Y,X). This becomes the first part of the tree. Then for the conn(X,Y), it becomes conn(W,a). This side of the tree will split into W=b and W=d. W=d eventually fails because there is no serv(d). However, W=b is successful because we have addr(a,b) and a a serv(b), which allows for the conn(b,a) to be true. On the right side of the tree, we have conn(a,W). This will split into w=c and no. Since c holds the address of a, and b holds the address of c, and serv(b) exists, we can create a conn(a,c) because of these factors. We see in the equation addr(X,Z), serv(Z), addr(Z,Y) can be applied here. In our case it would look similar to addr(a,b) serv(b) addr(b,c), which allows conn(b,c) to be true.
+
+
 \ldots
 
 \section{Paper}
