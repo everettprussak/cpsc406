@@ -193,6 +193,52 @@ For question 2, the task was to draw a SLD Recursion Tree for the following:\new
 \noindent\newline twoway(W,a) becomes conn(W,a) and conn(a,W) because of the rule twoway(X,Y):- conn(X,Y), conn(Y,X). This becomes the first part of the tree. Then for the conn(X,Y), it becomes conn(W,a). This side of the tree will split into W=b and W=d. W=d eventually fails because there is no serv(d). However, W=b is successful because we have addr(a,b) and a a serv(b), which allows for the conn(b,a) to be true. On the right side of the tree, we have conn(a,W). This will split into w=c and no. Since c holds the address of a, and b holds the address of c, and serv(b) exists, we can create a conn(a,c) because of these factors. We see in the equation addr(X,Z), serv(Z), addr(Z,Y) can be applied here. In our case it would look similar to addr(a,b) serv(b) addr(b,c), which allows conn(b,c) to be true.
 
 
+\subsection{Week 6 (Homework 3)}
+\noindent\newline The goal this week was to solve the following:
+
+\includegraphics[scale=0.64]{abcd}\noindent\newline
+
+\noindent\newline I split this into to two parts (Top and Bottom Questions).
+
+\subsubsection{Part 1 (Top)}
+\noindent\newline Here is my answer for number 1:
+
+\includegraphics[scale=0.64]{hw6_1}\noindent\newline
+
+\noindent\newline Here is my answer for number 2:
+
+\includegraphics[scale=0.64]{hw6_2}\noindent\newline
+
+\noindent\newline Here is my answer for number 3:
+
+\includegraphics[scale=0.64]{hw6_3}\noindent\newline
+
+\noindent\newline Here is my answer for number 4:
+
+\includegraphics[scale=0.64]{hw6_4}\noindent\newline
+
+\noindent\newline Here is my answer for number 5:
+
+\includegraphics[scale=0.64]{hw6_5_1}\noindent\newline
+\includegraphics[scale=0.64]{hw6_5_2}\noindent\newline
+
+\noindent\newline Here is my answer for number 6:
+
+\includegraphics[scale=0.64]{hw6_6}\noindent\newline
+\includegraphics[scale=0.64]{hw6_6_2}\noindent\newline
+
+\subsubsection{Part 1 (Bottom)}
+\noindent\newline Here is my answer for number 1:
+
+\includegraphics[scale=0.64]{hw6_bottom_1}\noindent\newline
+
+\noindent\newline Here is my answer for number 2:
+
+\includegraphics[scale=0.64]{hw6_bottom_2}\noindent\newline
+
+
+\noindent Note: I had trouble converting some of the symbols I used in my .txt file in my Verbatim. I used many screenshots instead. I will add my .txt and .jpg's in a folder called homeworkMedia on github!
+
 \ldots
 
 \section{Paper}
