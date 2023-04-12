@@ -242,6 +242,92 @@ For question 2, the task was to draw a SLD Recursion Tree for the following:\new
 \ldots
 
 \section{Paper}
+\subsection{Introduction}
+
+Prolog is a logic programming language that has many useful applications. Used in a wide range of fields, such as artificial intelligence, computational linguistics, and more, Prolog has proven to be a versatile language that can handle reasoning. This paper will explore the history, features, and applications of Prolog. Features that will be included in this paper will consist of logical paradigm, unification, backtracking, and pattern matching, which all play vital roles for the success of Prolog. Applications such as natural language process, expert systems, and automated planning will be examined through an algorithm analysis. Comparisons of common languages such as Java, C++, and Python will also be made versus Prolog to get a better understanding of the importance for the relatively unknown language. Highlighting the strengths and weaknesses of Prolog in an algorithm analysis and comparison will allow Prolog to be used more efficiently and correctly. With this information, the possibilities of Prolog for future development will be more clear for the reader. This paper will examine important aspects of Prolog to showcase the value it brings to software developments and its ability to solve complex problems with relative ease.\newline
+
+
+\subsection{Background}
+Prolog was created in the early 1970’s by French computer scientist Alan Colmerauer and Phillip Roussel in Marseille, France \href{https://www.cleverism.com/skills-and-tools/prolog/}{(1)}
+, who both attended the University of Aix-Marseille. The two computer scientists had started working on a programming language that could handle reasoning and symbolic computation. While building the programming language, Colmerauer and Roussel collaborated with American-British computer scientist Robert Kowalski \href{http://www.doc.ic.ac.uk/~rak/papers/the.pdf}{(2)}. Kowalski had proposed the idea of a language based on Horn Clauses, which ended up being the basis of logical expressions in Prolog. In 1972, Roussel developed the first Prolog interpreter and artificial intelligence specialist David Warren created the first compiler \href{https://www.mta.ca/~rrosebru/oldcourse/371199/prolog/history.html#:~:text=1972}{(3)}, also known as Prolog I. This marked a significant milestone in the evolution of Prolog. Prolog, which stands for logic programming, also sometimes written as programming logic depending on who is asked, was aimed to be a programming language that was capable of handling reasoning and symbolic computation. Logic programming, uses logic to represent knowledge and the use of deduction to solve problems by deriving logical consequences \href{https://www.mta.ca/~rrosebru/oldcourse/371199/prolog/history.html#:~:text=1972}{(3)},. The language was made to be declarative3, a high-level programming language that specifies what is to be done, rather than how to do it \href{https://www.britannica.com/technology/declarative-language}{(4)}. In 1973, Prolog II was created, which has many of the common and important features we see in Prolog today \href{https://dl.acm.org/doi/pdf/10.1145/234286.1057820}{(5)}. This version of the language featured the use of backtracking \href{https://dl.acm.org/doi/pdf/10.1145/234286.1057820}{(5)} and unification, more on these features later. Over the years, Prolog continued to evolve and gain popularity, with new features and implementations being continually developed. Today there are many versions of Prolog, which include GNU Prolog and Sicstus Prolog. The most notable version is SWI-Prolog, which is open source \href{https://www.swi-prolog.org/}{(6)} and a community based version that highlights industry and degree use. The impact on the entire field of computer science cannot be overstated and allowed for advancements of artificial intelligence, natural language processing, and expert systems. Programming languages can seem to have some similarities or inspiration for Prolog, such as Haskell.
+
+\subsection{Features}
+
+\subsubsection{Logical Paradigm}
+\noindent\newline Prolog has many important features that can be applied to different things. One feature that makes Prolog distinct from other programming languages is its logical paradigm. Logical paradigm takes a declarative approach to solving problems, with its knowledge being represented in logical rules \href{https://www.cs.ucf.edu/~leavens/ComS541Fall97/hw-pages/paradigms/major.html}{(1)}. As the program receives logical assertions based on various situations, prolog establishes them as facts. This idea is called Horn-Clauses. Logical rules created use Horn-Clauses to represent the rules and facts in the query written. Horn-Clauses have a head (left side) and a body (right side), but there are often times when there are headless Horn-Clauses which would disregard the head and only have the body \href{https://athena.ecs.csus.edu/~mei/logicp/prolog.html}{(2)}. Here is few examples of using logical rules being expressed as Horn-Clauses:
+\begin{verbatim}
+Headless Horn-Clauses:
+cat(Bob)
+cat(Bob, Leon)
+\end{verbatim}
+
+\noindent\newline The first script would tell us Bob is a Cat. 
+\noindent\newline The next script would explain more, telling us that Bob is a cat owned by Leon. 
+
+\begin{verbatim}
+Headed Horn-Clauses:
+animal(Bob):- cat(Bob, Leon)
+\end{verbatim}
+
+\noindent\newline This tells us that Bob is an animal, if Bob is a cat owned by Leon. 
+
+
+\noindent\newline As you can see, the more rules and facts that get added, the more complicated the entire program will get for us to interpret. This is a huge reason why Prolog can be so useful because it can quickly identify relationships and solve the problem being asked. Many Prolog programs can be handled via pen and paper, but this would prove to be a much slower process than simply using the impressive programming language. 
+
+\noindent\newline summary, the logical paradigm is a vital feature for Prolog. Providing Horn-Clauses and the basis for a declarative language, it solves user problems with relative ease. This feature is one of backings for the success of Prolog, and will continue to be. 
+
+\noindent\newline To continue with the logical paradigm in Prolog, being a declarative programming language is another important aspect. In the Background, there was mention of Prolog being made to solve the task, rather than how to do the task. In conventional programming languages, an algorithm is formulated as a sequence of instructions that the computer must follow precisely in order to solve a problem \href{https://www.simplilearn.com/tutorials/data-structure-tutorial/what-is-an-algorithm}{(3)}. As previously mentioned, Horn-Clauses are used to create rules and facts in Prolog. Prolog uses these Horn-Clauses to create relationships between objects that the user created. The programmer will specify what it is they want to solve for, and Prolog will use the relationships, rules, and facts given and determine an answer. In some instances, depending on what is being asked, Prolog will answer the question with True, False, or many different data-types \href{https://medium.com/@donepudisreeharsha/data-types-abstraction-expressions-in-prolog-6c7251477677}{(4)}. 
+
+
+\subsubsection{Unification}
+Unification is another important feature that sets Prolog apart from typical programming languages. Unification involves comparing two terms to see if they are identical or can be made to be identical. If they are already identical, then unification can be made. If they are not, then a process called binding variables must be done in order to make the terms unify with each other \href{https://www.educba.com/prolog-unification/}{(5)}. Terms can be numbers, variables, atoms, or other structures. 
+
+\noindent\newline When the process of unification between two terms takes place, Prolog will compare each term structure from left to right. When two constants are unified, Prolog will check if they are the same value. If they are not the same, then unification fails and the program backtracks, more on this later. If they are the same value, then unification is successful \href{https://www.dai.ed.ac.uk/groups/ssp/bookpages/quickprolog/node12.html}{(6)}. Here is an example:
+\begin{verbatim}
+?- a = a.
+Yes
+
+?- a = b.
+No
+
+\end{verbatim}
+
+As you can see here, we know that a would be the same as a, and likewise that a is not the same as b. Prolog does this computation using unification, as mentioned above.
+
+If they are not constants, but instead variables, Prolog binds them to the same value \href{https://www.dai.ed.ac.uk/groups/ssp/bookpages/quickprolog/node12.html}{(6)}. Here is an example:
+\begin{verbatim}
+?- X = a.
+X = a
+Yes
+
+?- X = Y.
+X = _UNIQUE
+Y = _UNIQUE
+Yes
+
+\end{verbatim}
+
+\noindent\newline Unification will bind these two variables to a single, unique variable name. Likely the variable would not be called \textbf{underscore UNIQUE} but instead possibly an underscore followed by a sequence of random-like numbers.  In Prolog, assignment of values to variables is different from typical programming languages. Instead of directly assigning the value to the variable, the variable is unified directly with the term. This means when the value of the term changes, the value of the variable changes as well \href{https://cliplab.org/~logalg/doc/The_Art_of_Prolog.pdf}{(7)}. Unification is also used to match a query with a rule or fact in the knowledge base. To determine if the query is true or false, the query will be unified with the rule or fact. If the result is true, then the unification process generates a set of values for the variables in the query. 
+
+\noindent\newline The use of Unificication proves to be a vital feature of Prolog. By unifying constants, atoms, variables, and more, to make terms identical, it allows Prolog to represent and reason about knowledge and find an answer for the user.
+
+
+\subsubsection{Backtracking}
+\noindent\newline The next vital feature of Prolog that will be discussed is backtracking. Backtracking makes Prolog a much more powerful programming language because this concept allows Prolog to search multiple solutions and select the best. Backtracking allows Prolog to search for the truth value of different predicates by trying out various solutions and checking if they are correct \href{https://www.tutorialspoint.com/prolog/prolog_backtracking.htm#:~:text=Backtracking}{(8)}. While backtracking is not unique to only Prolog, fields such as Artificial Intelligence use the backtracking algorithm as well, it can be a super useful tool and has found success in the Prolog language.
+
+\noindent\newline When the backtracking algorithm is computing, it will explore multiple paths of the search tree until a solution, or the best solution is found. When it runs into a leaf node with no solution found, the algorithm stores the current state of the program and will try another path. This will continue to occur until a solution is found, or every path has been taken \href{https://www.simplilearn.com/tutorials/data-structure-tutorial/backtracking-algorithm}{(9)}
+
+\includegraphics[scale=0.64]{bactracking}\noindent\newline
+
+\noindent\newline There are numerous advantages of the backtracking algorithm for use in Prolog. By exploring multiple solutions to a single problem, the best choice can be decided. In typical single-pass algorithms this would not be possible. Another advantage is that backtracking makes Prolog much more flexible. This means that code can be adjusted and changed, but the answer can still find the same exact solution with enough information. 
+
+\noindent\newline One main disadvantage is the possible computation time. Since there could be a lot of rules and facts given to Prolog, and many different possibilities, a solution may take a long time to find. This also means that the search space of the algorithm is very large as well. Computationally efficient algorithms are very important to have, but in most cases Prolog does compute in a reasonable amount of time.
+
+
+\subsubsection{Pattern Matching}
+\noindent\newline The last Prolog feature that will be mentioned in this paper is pattern matching. Pattern matching is core feature of Prolog that allows manipulation of complex data with relative ease. Pattern matching is closely related and shares many of the same details and commands as Unification. The main difference is that Unification is the process of making two terms the same, while pattern matching is testing terms on a specific pattern \href{https://composingprograms.com/pages/45-unification.html}{(10)}. 
+
+\noindent\newline The rules created by the user defines a pattern that can be followed. The pattern matching algorithm will determine if a set of terms matches the specific pattern. This will allow for the Prolog language as a whole to use new facts with other data. Simply, the program will be able match the new term to patterns that it has already defined from previous rules. 
 
 ...
 
@@ -251,6 +337,29 @@ For question 2, the task was to draw a SLD Recursion Tree for the following:\new
 
 \begin{thebibliography}{99}
 \bibitem[ALG]{Alg} \href{https://github.com/alexhkurz/algorithm-analysis-2023}{Algorithm Analysis}, Chapman University, 2023.
+
+
+Paper Sources: \newline
+(1) \href{https://www.cleverism.com/skills-and-tools/prolog/}{a}\newline
+(2) \href{http://www.doc.ic.ac.uk/~rak/papers/the%20early%20years.pdf}{b}\newline
+(3) \href{https://www.mta.ca/~rrosebru/oldcourse/371199/prolog/history.html#:~:text=1972%20is%20referred%20to%20by,interpreter%20was%20built%20by%20Roussel.}{c}\newline
+(4) \href{https://www.britannica.com/technology/declarative-language}{d} \newline
+(5) \href{https://dl.acm.org/doi/pdf/10.1145/234286.1057820}{e} \newline
+(6) \href{https://www.swi-prolog.org/}{f} \newline
+
+Features Sesction:\newline
+(1) \href{https://www.cs.ucf.edu/~leavens/ComS541Fall97/hw-pages/paradigms/major.html}{1}\newline
+(2) \href{https://athena.ecs.csus.edu/~mei/logicp/prolog.html}{2}\newline
+(3) \href{https://www.simplilearn.com/tutorials/data-structure-tutorial/what-is-an-algorithm}{3}\newline
+(4) \href{https://medium.com/@donepudisreeharsha/data-types-abstraction-expressions-in-prolog-6c7251477677}{4}\newline
+(5) \href{https://www.educba.com/prolog-unification/}{5}\newline
+(6) \href{https://www.dai.ed.ac.uk/groups/ssp/bookpages/quickprolog/node12.html}{6}\newline
+(7) \href{https://cliplab.org/~logalg/doc/The_Art_of_Prolog.pdf}{7}\newline
+(8) \href{https://www.tutorialspoint.com/prolog/prolog_backtracking.htm#:~:text=Backtracking}{8}\newline
+(9) \href{https://www.simplilearn.com/tutorials/data-structure-tutorial/backtracking-algorithm}{9}\newline
+(10) \href{https://composingprograms.com/pages/45-unification.html}{10}\newline
+
+
 \end{thebibliography}
 
 \end{document}
