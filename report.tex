@@ -239,6 +239,79 @@ For question 2, the task was to draw a SLD Recursion Tree for the following:\new
 
 \noindent Note: I had trouble converting some of the symbols I used in my .txt file in my Verbatim. I used many screenshots instead. I will add my .txt and .jpg's in a folder called homeworkMedia on github!
 
+
+\subsection{Week 9}
+This weeks tasks were to experiment with Spin, and solve 4 exercises.
+
+\noindent\newline Formulas:
+\begin{verbatim}
+[]  (success && bobAlice -> aliceBob)
+[]  (success && aliceBob -> bobAlice)
+\end{verbatim}
+
+
+\noindent\newline\textbf{Exercise 1:} 
+Go through the program, find these variables, and describe in plain language the meaning of these propositions above.
+
+\noindent\newline The 3 variables that will be discussed are success, bobAlice, and aliceBob. The variable success is a boolean variable. If the protocol runs to completion, then it will be set as 'True'. If it breaks somewhere down the line, then the protocol is not a 'success' and would be set to 'False'. The bobAlice variable is another boolean variable. If Bob receives a message from Alice then it would be set as 'True'. If Bob does not receive a message from Alice then it would be set as 'False'. Lastly, aliceBob is another boolean variable. If Alice receives a message from Bob then it would be set to 'True', if not then it would be 'False'.
+
+\noindent\newline With all of these variables explained, the first formula would read if there is a success in the completion of the protocol and Bob is receives a message from Alice, then Bob is communicating with Alice. The next formula would read if there is a success in the completion of the protocol and Alice is receives a message from Bob, then Alice is communicating with Bob.
+
+
+\noindent\newline\textbf{Exercise 2:} 
+Which of the two formulas (from above) is verified as correct and which one is violated? What do we learn from this about the correctness of the protocol?
+
+The second formula was verified as correct
+\begin{verbatim}
+[]  (success && aliceBob -> bobAlice)
+\end{verbatim}
+
+\noindent\newline While the first formula was violated
+\begin{verbatim}
+[]  (success && bobAlice -> aliceBob)
+\end{verbatim}
+
+
+\noindent\newline\newline This tells us that the variables \textbf{success} and \textbf{bobAlice} were True boolean variables. The variable \textbf{aliceBob} was False, and this formula would result in violated truth table, with 1 -> 0 being an outcome of 0 as well, meaning violated.
+
+\noindent\newline Relevant Output (Violated Formula):
+\begin{verbatim}
+spin -a ns.pml; cc -o pan pan.c; ./pan -a
+
+pan:1: assertion violated  
+!( !(( !((((statusA==1)&&(statusB==1))&&(partnerB==10)))||(partnerA==9)))) (at depth 83)
+pan: wrote ns.pml.trail
+
+\end{verbatim}
+
+
+\noindent\newline\textbf{Exercise 3:}
+The property that is violated produces an execution sequence. How long is that execution sequence?
+
+\noindent\newline The number of execution steps I read from my terminal using this command:
+\begin{verbatim}
+spin -p -t ns.pml
+\end{verbatim}
+
+\noindent was \textbf{84 execution sequences}. 
+
+\noindent\newline Relevant Output:
+\begin{verbatim}
+vi ns.pml.trail
+
+81:2:41
+82:0:116
+83:1:20
+84:0:113
+\end{verbatim}
+
+
+
+\noindent\newline\textbf{Exercise 4:}
+Use Spin to produce an MSC that represents a successful attack on the protocol. Explain in detail why the MSC constitutes a successful attack.
+
+\noindent\newline To be considered a \textbf{successful attack}, the LTL-correctness properties are to be verified.
+
 \ldots
 
 \section{Paper}
@@ -327,8 +400,18 @@ Yes
 \subsubsection{Pattern Matching}
 \noindent\newline The last Prolog feature that will be mentioned in this paper is pattern matching. Pattern matching is core feature of Prolog that allows manipulation of complex data with relative ease. Pattern matching is closely related and shares many of the same details and commands as Unification. The main difference is that Unification is the process of making two terms the same, while pattern matching is testing terms on a specific pattern \href{https://composingprograms.com/pages/45-unification.html}{(10)}. 
 
-\noindent\newline The rules created by the user defines a pattern that can be followed. The pattern matching algorithm will determine if a set of terms matches the specific pattern. This will allow for the Prolog language as a whole to use new facts with other data. Simply, the program will be able match the new term to patterns that it has already defined from previous rules. 
+\noindent\newline The rules created by the user defines a pattern that can be followed. The pattern matching algorithm will determine if a set of terms matches the specific pattern. This will allow for the Prolog language as a whole to use new facts with other data. Simply, the program will be able match the new term to patterns that it has already defined from previous rules. Pattern matching is extremely important for Prolog, as Prolog follows the declarative programming paradigm that utilizes logical rules for defining relationships among entities. Pattern matching serves as an ideal algorithm to check if a specific input data works with a particular rule.
 
+
+\subsection{Applications}
+
+\subsubsection{Natural Language Processing}
+\noindent\newline Natural Language Processing, also known as NLP, is a field of computer science that focuses on giving machines the ability to comprehend text and write or speak similarly to humans \href{https://www.ibm.com/topics/natural-language-processing}{(1)}. Immediately, many people can see the connection to Artificial Intelligence from NLP.  By combing computational linguistics, statistical analysis, and deep learning models, NLP allows computers to process human langauges by writing in text or even speaking.
+
+\noindent\newline The features of Prolog allow Natural Language Processing to be accelerated in some instances. By allowing developers to define rules and relationships, Prolog can correctly interpret user input phrases easily \href{https://www.cs.unm.edu/~luger/ai-final2/CH8_Natural%20Language%20Processing%20in%20Prolog.pdf}{(2)}. Again, since Prolog is a Declarative Programming Language, the answer is what the User would be provided with, rather than many programming steps. This is important because efficiency of receiving an answer is very important in today's world, where the longer it takes, the more impatient a user will become. 
+
+
+\noindent\newline Another advantage of using Prolog for Natural Language Processing is the ability to directly translate one human language to another. More on this...
 ...
 
 \section{Conclusions}\label{conclusions}
@@ -358,6 +441,10 @@ Features Sesction:\newline
 (8) \href{https://www.tutorialspoint.com/prolog/prolog_backtracking.htm#:~:text=Backtracking}{8}\newline
 (9) \href{https://www.simplilearn.com/tutorials/data-structure-tutorial/backtracking-algorithm}{9}\newline
 (10) \href{https://composingprograms.com/pages/45-unification.html}{10}\newline
+
+Applications Section:\newline
+(1) \href{https://www.ibm.com/topics/natural-language-processing}{1}\newline
+(2) \href{https://www.cs.unm.edu/~luger/ai-final2/CH8_Natural%20Language%20Processing%20in%20Prolog.pdf}{2} \newline
 
 
 \end{thebibliography}
