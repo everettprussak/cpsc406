@@ -310,6 +310,36 @@ vi ns.pml.trail
 \noindent\newline\textbf{Exercise 4:}
 Use Spin to produce an MSC that represents a successful attack on the protocol. Explain in detail why the MSC constitutes a successful attack.
 
+
+\noindent\newline These were the new propositional variable I created/used:
+\begin{verbatim}
+#define success		(statusA == ok && statusB == ok)
+#define aliceBob	(partnerA == bob)
+#define bobAlice	(partnerB == alice)
+#define intruderAlice (partnerB == intruder)
+#define intruderBob (partnerA == intruder)
+#define bobIntruder (partnerA == bob)
+#define aliceIntruder (partnerB== alice)
+#define knowNA		(knowNA)
+#define knowNB		(knowNB)
+#define knownNI   (knowNI)
+\end{verbatim}
+
+\noindent\newline These were the formulas/properties I created:
+\begin{verbatim}
+ltl {[]  (success && aliceIntruder -> intruderAlice)}
+ltl {[]  (success && intruderBob -> bobIntruder)}
+ltl {[]  (success && bobIntruder -> intruderAlice)}
+\end{verbatim}
+
+\noindent\newline This was the output:
+\begin{verbatim}
+pan: ltl formula ltl_0
+\end{verbatim}
+
+\noindent\newline I was slightly confused in how to create a successful attack in Spin, but I believe that this worked and was classified as an \textbf{attack}. First, Alice sends a message to the Intruder. The Intruder then sends a message to Bob, where Bob then sends a message back to the Intruder. This means that the intruder would be able to impersonate both Bob and Alice. In theory, if Alice had access or control of Bob's money, the Intruder could send a message to get Bob's money from Alice by impersonating Bob. This would be a very bad attack on both Alice and Bob.
+
+
 \noindent\newline To be considered a \textbf{successful attack}, the LTL-correctness properties are to be verified.
 
 \ldots
