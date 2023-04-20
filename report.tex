@@ -415,6 +415,7 @@ Yes
 \noindent\newline The use of Unificication proves to be a vital feature of Prolog. By unifying constants, atoms, variables, and more, to make terms identical, it allows Prolog to represent and reason about knowledge and find an answer for the user.
 
 
+
 \subsubsection{Backtracking}
 \noindent\newline The next vital feature of Prolog that will be discussed is backtracking. Backtracking makes Prolog a much more powerful programming language because this concept allows Prolog to search multiple solutions and select the best. Backtracking allows Prolog to search for the truth value of different predicates by trying out various solutions and checking if they are correct \href{https://www.tutorialspoint.com/prolog/prolog_backtracking.htm#:~:text=Backtracking}{(8)}. While backtracking is not unique to only Prolog, fields such as Artificial Intelligence use the backtracking algorithm as well, it can be a super useful tool and has found success in the Prolog language.
 
@@ -426,22 +427,59 @@ Yes
 
 \noindent\newline One main disadvantage is the possible computation time. Since there could be a lot of rules and facts given to Prolog, and many different possibilities, a solution may take a long time to find. This also means that the search space of the algorithm is very large as well. Computationally efficient algorithms are very important to have, but in most cases Prolog does compute in a reasonable amount of time.
 
+\noindent\newline\newline\textbf{Algorithm Analysis of Backtracking}
+\noindent\newline The time complexity of Backtracking can be extremely good or bad. In theory, Backtracking can have a runtime of O(1) when a solution is found on the first trial. This means that when searching for a solution, it would be found on the very first leaf node. The actual act of backtracking never occurs, but this is still a case of backtracking. However, most of the time the solution is not found on the very first branch and leaf node, so the algorithm's time complexity gets worse. The worst case runtime would be O($2^n$). n in this case would be the number of decision points in the tree \href{https://athena.ecs.csus.edu/~mei/logicp/Programming_in_Prolog.pdf}{(10)}.
+
+
 
 \subsubsection{Pattern Matching}
-\noindent\newline The last Prolog feature that will be mentioned in this paper is pattern matching. Pattern matching is core feature of Prolog that allows manipulation of complex data with relative ease. Pattern matching is closely related and shares many of the same details and commands as Unification. The main difference is that Unification is the process of making two terms the same, while pattern matching is testing terms on a specific pattern \href{https://composingprograms.com/pages/45-unification.html}{(10)}. 
+\noindent\newline The last Prolog feature that will be mentioned in this paper is pattern matching. Pattern matching is core feature of Prolog that allows manipulation of complex data with relative ease. Pattern matching is closely related and shares many of the same details and commands as Unification. The main difference is that Unification is the process of making two terms the same, while pattern matching is testing terms on a specific pattern \href{https://composingprograms.com/pages/45-unification.html}{(11)}. 
 
 \noindent\newline The rules created by the user defines a pattern that can be followed. The pattern matching algorithm will determine if a set of terms matches the specific pattern. This will allow for the Prolog language as a whole to use new facts with other data. Simply, the program will be able match the new term to patterns that it has already defined from previous rules. Pattern matching is extremely important for Prolog, as Prolog follows the declarative programming paradigm that utilizes logical rules for defining relationships among entities. Pattern matching serves as an ideal algorithm to check if a specific input data works with a particular rule.
+
+
+\noindent\newline\newline\textbf{Algorithm Analysis of Pattern Matching}
+\noindent\newline Pattern matching's worst case runtime is a decent runtime. The Big-O notation would be O(n), where n is the length of the data being used to find a pattern. However, in the best case scenario, we can see a O(1). This case would be seen when the data and pattern are small and simple. As it gets more complex and the data expands, the runtime will go towards a linear runtime of O(n). 
 
 
 \subsection{Applications}
 
 \subsubsection{Natural Language Processing}
-\noindent\newline Natural Language Processing, also known as NLP, is a field of computer science that focuses on giving machines the ability to comprehend text and write or speak similarly to humans \href{https://www.ibm.com/topics/natural-language-processing}{(1)}. Immediately, many people can see the connection to Artificial Intelligence from NLP.  By combing computational linguistics, statistical analysis, and deep learning models, NLP allows computers to process human langauges by writing in text or even speaking.
+\noindent\newline Natural Language Processing, also known as NLP, is a field of computer science that focuses on giving machines the ability to comprehend text and write or speak similarly to humans \href{https://www.ibm.com/topics/natural-language-processing}{(1)}. Immediately, we  can see the connection to Artificial Intelligence from NLP. By combing computational linguistics, statistical analysis, and deep learning models, NLP allows computers to process human langauges by writing back in text or even speaking the human language. For example, common applications such as Apple's Siri and Amazon's Alexa use Natural Language Processing to speak back to the user \href{https://www.arm.com/glossary/natural-language-processing}{(2)}.
 
-\noindent\newline The features of Prolog allow Natural Language Processing to be accelerated in some instances. By allowing developers to define rules and relationships, Prolog can correctly interpret user input phrases easily \href{https://www.cs.unm.edu/~luger/ai-final2/CH8_Natural%20Language%20Processing%20in%20Prolog.pdf}{(2)}. Again, since Prolog is a Declarative Programming Language, the answer is what the User would be provided with, rather than many programming steps. This is important because efficiency of receiving an answer is very important in today's world, where the longer it takes, the more impatient a user will become. 
+\noindent\newline Prolog has been used in many NLP applications, including text summarization, machine translation, chatbots, and speech recognition \href{https://monkeylearn.com/blog/natural-language-processing-applications/}{(3)}.
+
+\noindent\newline The features of Prolog allow Natural Language Processing to be accelerated in some instances. By allowing developers to define rules and relationships, Prolog can correctly interpret user input phrases easily \href{https://www.cs.unm.edu/~luger/ai-final2/CH8_Natural%20Language%20Processing%20in%20Prolog.pdf}{(4)}. Again, since Prolog is a Declarative Programming Language, the answer the User is looking for would be given, rather than a list of programming steps. Prolog has been used in NLP applications that translate languages, retrieve information, and answer questions. 
+
+\noindent\newline One of the main disadvantages of using Prolog for NLP applications is the lack of scalability for large NLP applications. As mentioned in the algorithm analysis of Pattern Matching, when the program gets larger and more complex, the runtime gets much worse from a constant runtime. NLP applications are very large because of all the data they must store, so many Prolog NLP applications could be slow. 
+
+\subsubsection{Expert Systems}
+\noindent\newline Expert Systems are another application that can be produced with the help of Prolog. Expert Systems are computer applications that provide advice or decision making assistance \href{https://www.britannica.com/technology/expert-system}{(5)}. Using two components, a knowledge base and an inference engine, the Expert System can use facts and relationships to determine an outcome for the user. The knowledge base and inference engine perfectly fit with the Prolog language. As mentioned previously, Prolog's logical rules, facts, relationships, and features will give an Expert System many tools to be efficient and accurate. 
+
+\noindent\newline Expert Systems using Prolog can be used in medicine, finance, and engineering. For medical Expert Systems, medical officials and assisters can use the system to lookup symptoms for a patient, and receive a plausible diagnosis \href{https://journal.chestnet.org/action/showPdf?pii=S0012-3692%2815%2942851-X%}{(6)} In terms of finance, Expert Systems have efficiency in qualitiative analysis in profitability, baking, and strategic financial planning \href{https://www.routledge.com/Expert-Systems-in-Finance-Smart-Financial-Applications-in-Big-Data-Environments/Metawa-Elhoseny-Hassanien-Hassan/p/book/9780367729011}{(7)}. The use of Expert Systems are very important, but including Prolog can make the task of building it easier and more efficient. 
 
 
-\noindent\newline Another advantage of using Prolog for Natural Language Processing is the ability to directly translate one human language to another. More on this...
+\subsubsection{Automated Planning}
+\noindent\newline The last application that will be discussed is Automated Planning. Automated Planning uses rules and relationships to allow computers and machines to generate a sequence of actions in order to achieve a particular goal \href{https://cw.fel.cvut.cz/old/_media/courses/a4m33pah/planning-course.pdf}{(8)}. 
+
+\noindent\newline The entire process  and application of Automated Planning is much more difficult than the others. Automated planning in Prolog involves using various techniques and algorithms such as heuristic search and constraint satisfaction. The planner generates a range of possible plans, assesses their feasibility according to certain constraints, and chooses the most optimal one. The process can be done manually or automatically, depending on the complexity of the problem.
+
+
+\subsection{Language Comparison}
+Language Comparison
+
+\subsubsection{C++}
+C++ Section
+
+\subsubsection{Python}
+Python Section
+
+\subsubsection{Java}
+
+
+\subsection{Conclusion}
+Here is my conclusion.
+
 ...
 
 \section{Conclusions}\label{conclusions}
@@ -470,11 +508,18 @@ Features Sesction:\newline
 (7) \href{https://cliplab.org/~logalg/doc/The_Art_of_Prolog.pdf}{7}\newline
 (8) \href{https://www.tutorialspoint.com/prolog/prolog_backtracking.htm#:~:text=Backtracking}{8}\newline
 (9) \href{https://www.simplilearn.com/tutorials/data-structure-tutorial/backtracking-algorithm}{9}\newline
-(10) \href{https://composingprograms.com/pages/45-unification.html}{10}\newline
+(10) \href{https://athena.ecs.csus.edu/~mei/logicp/Programming_in_Prolog.pdf}{10}\newline
+(11) \href{https://composingprograms.com/pages/45-unification.html}{11}\newline
 
 Applications Section:\newline
 (1) \href{https://www.ibm.com/topics/natural-language-processing}{1}\newline
-(2) \href{https://www.cs.unm.edu/~luger/ai-final2/CH8_Natural%20Language%20Processing%20in%20Prolog.pdf}{2} \newline
+(2) \href{https://www.arm.com/glossary/natural-language-processing}{2}\newline
+(3) \href{https://monkeylearn.com/blog/natural-language-processing-applications/}{3}\newline
+(4) \href{https://www.cs.unm.edu/~luger/ai-final2/CH8_Natural%20Language%20Processing%20in%20Prolog.pdf}{4} \newline
+(5) \href{https://www.britannica.com/technology/expert-system}{5}\newline
+(6) \href{https://journal.chestnet.org/action/showPdf?pii=S0012-3692%2815%2942851-X}{6}\newline
+(7) \href{https://www.routledge.com/Expert-Systems-in-Finance-Smart-Financial-Applications-in-Big-Data-Environments/Metawa-Elhoseny-Hassanien-Hassan/p/book/9780367729011}{7}\newline
+(8) \href{https://cw.fel.cvut.cz/old/_media/courses/a4m33pah/planning-course.pdf}{8}\newline
 
 
 \end{thebibliography}
