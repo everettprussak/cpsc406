@@ -342,6 +342,53 @@ pan: ltl formula ltl_0
 
 \noindent\newline To be considered a \textbf{successful attack}, the LTL-correctness properties are to be verified.
 
+\subsection{Week 11}
+This week there were two tasks. The first task was to illustrate the following automata:\newline
+\includegraphics[scale=0.75]{hw11_a}
+
+\subsubsection{Part 1}
+\noindent\newline For this I drew them following automata:\newline
+\includegraphics[scale=0.6]{hw11_p1}
+
+\noindent\newline A1 and A2 were the original DFA's. The Top Right (Pink) is the Union, then middle (Purple) is sequential composition, and lastly bottom (Blue) is Kleene Star.
+
+\subsubsection{Part 2}
+\noindent\newline The next task were to do the following two exercises. The Regular Expression, DFA, and Epsilon NFA were to be created for each.
+
+\noindent\newline Here are the two exercises:\newline
+\includegraphics[scale=0.55]{hw11_b}
+
+\noindent\newline\newline For the first exercise I got the following Regular Expression
+\begin{verbatim}
+A = {0 + 1+ ... + 9}*
+
+RE: A0A0 + A1A1 + ... + A9A9
+\end{verbatim}
+
+\noindent\newline For this regular expression, I created a rule for A. This allowed it to be written easier, and therefore the reader can understand it better.
+
+\noindent\newline\newline For the DFA I created:\newline
+\includegraphics[scale=0.75]{hw11_p2dfa}
+
+\noindent\newline\newline For the Epsilon NFA I created:\newline
+\includegraphics[scale=1.0]{hw11_p2nfa}
+
+\noindent\newline\newline For the second exercise I got the following Regular Expression
+\begin{verbatim}
+RE1: a*
+RE2: b*
+RE3: c*
+
+Final RE: (abc)*
+\end{verbatim}
+
+\noindent\newline\newline For the DFA I created:\newline
+\includegraphics[scale=0.75]{hw11_p3dfa}
+
+\noindent\newline\newline For the Epsilon NFA I created:\newline
+\includegraphics[scale=0.75]{hw11_p3nfa}
+
+
 \ldots
 
 \section{Paper}
