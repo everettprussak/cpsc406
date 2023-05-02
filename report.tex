@@ -389,7 +389,81 @@ Final RE: (abc)*
 \includegraphics[scale=0.75]{hw11_p3nfa}
 
 
-\ldots
+\subsection{Week 12}
+\noindent\newline This week's homework required an analysis of some Java and Python programs and to dissect them further.
+
+\subsubsection{Number 1}
+\noindent\newline Exercise 1: Have a look at peterson.py. What program behavior do you expect? Is your expectation confirmed when you run the program? 
+
+\noindent\newline\newline Before running the program, I would expect for the Counter Value to be 20,000. After running the program my expectation was correct, as the value printed was 20,000.
+
+
+\subsubsection{Number 2}
+\noindent\newline Exercise 2: Analyse the Java program peterson in the same way as you analysed the Python program in the previous exercise. Make sure to run the Java program on your local machine. What observations do you make? 
+
+\noindent\newline\newline Again, I expected the counter value to be 20,000. When running peterson.java inside of the Online Java Website, I received the value of 20,000 each time. However, when I did peterson.java on my local machine I had different results. Interestingly, I would receive numbers close to 20,000 such as 19,912 or 19,930. I never had a counter value of 20,000 when running on my local machine which is very interesting.
+
+
+\subsubsection{Number 3}
+\noindent\newline Exercise 3: Explain why the outcome a = 0, b = 0 is not sequentially consistent, but the other three outcomes are.
+
+\noindent\newline\newline The outcome a = 0 and b = 0 is not sequentially consistent because the program has multiple threads involved, but those threads are not synchronized properly.
+
+\noindent\newline\newline From a more indepth explanation from AI: 
+\begin{verbatim}
+The threads t1 and t2 can access the shared variables x and y concurrently, and both threads can
+update the shared variables a and b. 
+The operations of the threads can be interleaved in different ways, leading to different outcomes.
+
+In the case of a = 0, b = 0, the following interleaving of operations is possible:
+
+t1 sets x = 1
+t2 sets y = 1 and reads x as 0
+t1 reads y as 0 and sets b = y as 0
+t2 sets a = x as 0
+Therefore, the outcome a = 0, b = 0 violates the sequentially consistent execution of the program.
+\end{verbatim}
+
+\subsubsection{Number 4}
+\noindent\newline Exercise 4: Report the results you get from running memoryModelWithStats on your local machine. Include the specs of our processor, in particular the number of cores. If you can find out something about the cashes, add this as well. 
+
+\noindent\newline\newline Here are the results from running memoryModelWithStats on my local machine.
+
+\begin{verbatim}
+Outcomes after 1000 iterations:
+(0, 0): 1
+(0, 1): 451
+(1, 0): 543
+(1, 1): 5
+\end{verbatim}
+
+\noindent\newline\newline Here is the information about my Mac's Processor and the number of cores:
+\begin{verbatim}
+Processor Name:  Dual-Core Intel Core i3
+Processor Speed:  1.1 GHz
+Number of Processors:  1
+otal Number of Cores:  2
+\end{verbatim}
+
+\subsubsection{Number 5}
+\noindent\newline Exercise 5: You can force sequential consistency of memoryModelWithStats by declaring certain variables volatile (see below). In general, declaring variables as volatile comes at cost in execution time, so we want to use this sparingly. Which variables must be declare as volatile to ensure sequential consistency? Measure and report the effect that volatile has on your run time (I use java Main | gnomon).
+
+\noindent\newline I declared x, y, a, and b as volatile because...
+
+\noindent\newline The program using time java Main (java Main | gnomon was not working, even while using brew to install it), was the following:
+\begin{verbatim}
+java Main  0.84s user 0.64s system 16% cpu 9.070 total
+\end{verbatim}
+
+\noindent\newline Without declaring the variables as volatile, I received the following:
+\begin{verbatim}
+java Main  0.97s user 0.77s system 20% cpu 8.486 total
+\end{verbatim}
+
+\noindent\newline\newline Interestingly, the program with volatile variables was slightly better. The total runtime was better, but the program without volatile variables had a better CPU usage.
+
+
+\dots
 
 \section{Paper}
 \subsection{Introduction}
